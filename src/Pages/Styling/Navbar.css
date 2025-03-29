@@ -47,18 +47,20 @@
     margin-right: 40px;
 }
 
-.nav-links li a {
-    color: #fff;
-    text-decoration: none;
+.nav-links li button {
+    all: unset; /* Removes default button styles */
     font-size: 18px;
     font-weight: bold;
-    transition: color 0.3s;
+    color: #fff;
+    cursor: pointer;
     padding: 10px 10px;
+    transition: color 0.3s;
 }
 
-.nav-links li a:hover {
-    color:rgba(0, 0, 0, 0.5);
+.nav-links li button:hover {
+    color: rgba(0, 0, 0, 0.5);
 }
+
 
 /* Centered Text Styling */
 .text-container {

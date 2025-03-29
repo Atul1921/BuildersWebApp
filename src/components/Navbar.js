@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import logo from "./icons/bhardwajwhite.png";
 import bg1 from "./icons/bgimg.jpg";
 import bg2 from "./icons/bgimg2.jpg";
@@ -22,6 +21,10 @@ function Navbar() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleScroll = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <nav className="navbar" style={{ backgroundImage: `url(${slides[currentSlide].image})` }}>
       <div className="overlay">
@@ -30,11 +33,11 @@ function Navbar() {
             <img src={logo} alt="Logo" className="logo" />
           </div>
           <ul className="nav-links">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/services">Services</Link></li>
-            <li><Link to="/portfolio">Portfolio</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
+            <li><button onClick={() => handleScroll("Homescreen")}>Home</button></li>
+            <li><button onClick={() => handleScroll("about")}>About</button></li>
+            <li><button onClick={() => handleScroll("services")}>Services</button></li>
+            <li><button onClick={() => handleScroll("portfolio")}>Portfolio</button></li>
+            <li><button onClick={() => handleScroll("contact")}>Contact</button></li>
           </ul>
         </div>
         <div className="text-container">
