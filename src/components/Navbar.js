@@ -6,7 +6,7 @@ import bg3 from "./icons/bgimg3.jpg";
 import "../Pages/Styling/Navbar.css";
 
 const slides = [
-  { image: bg1, title: "Welcome to Bhardwaj Enterprises", subtitle: "Crafting Excellence, Building the Future" },
+  { image: bg1, title: "Welcome to Bhardwaj Builders", subtitle: "Crafting Excellence, Building the Future" },
   { image: bg2, title: "Innovative Solutions", subtitle: "Turning Your Ideas Into Reality" },
   { image: bg3, title: "Quality and Commitment", subtitle: "Delivering the Best, Always" },
 ];
@@ -32,13 +32,13 @@ function Navbar() {
           <div className="logo-container">
             <img src={logo} alt="Logo" className="logo" />
           </div>
-          <ul className="nav-links">
+          {/* <ul className="nav-links">
             <li><button onClick={() => handleScroll("Homescreen")}>Home</button></li>
             <li><button onClick={() => handleScroll("about")}>About</button></li>
             <li><button onClick={() => handleScroll("services")}>Services</button></li>
             <li><button onClick={() => handleScroll("portfolio")}>Portfolio</button></li>
             <li><button onClick={() => handleScroll("contact")}>Contact</button></li>
-          </ul>
+          </ul> */}
         </div>
         <div className="text-container">
           <h1>{slides[currentSlide].title}</h1>
