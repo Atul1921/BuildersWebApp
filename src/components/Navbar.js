@@ -22,7 +22,10 @@ function Navbar() {
   }, []);
 
   const handleScroll = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -32,13 +35,11 @@ function Navbar() {
           <div className="logo-container">
             <img src={logo} alt="Logo" className="logo" />
           </div>
-          {/* <ul className="nav-links">
-            <li><button onClick={() => handleScroll("Homescreen")}>Home</button></li>
-            <li><button onClick={() => handleScroll("about")}>About</button></li>
-            <li><button onClick={() => handleScroll("services")}>Services</button></li>
-            <li><button onClick={() => handleScroll("portfolio")}>Portfolio</button></li>
-            <li><button onClick={() => handleScroll("contact")}>Contact</button></li>
-          </ul> */}
+          <ul className="nav-links">
+            <li><button onClick={() => handleScroll("about-section")}>About</button></li>
+            <li><button onClick={() => handleScroll("gallery-section")}>Gallery</button></li>
+            <li><button onClick={() => handleScroll("contact-section")}>Contact</button></li>
+          </ul>
         </div>
         <div className="text-container">
           <h1>{slides[currentSlide].title}</h1>
