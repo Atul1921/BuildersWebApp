@@ -5,7 +5,7 @@ import { FaHome, FaBuilding, FaPaintRoller, FaTools } from "react-icons/fa";
 
 // Image Imports
 import ceoImage from "../components/icons/Ceo.jpg";
-import worker1 from "../components/icons/labour2.jpeg";
+import worker1 from "../components/icons/indoor.jpeg";
 import worker2 from "../components/icons/labour1.jpeg";
 import worker3 from "../components/icons/labour3.jpeg";
 import worker4 from "../components/icons/labour4.jpeg";
@@ -140,22 +140,23 @@ function Homescreen() {
     transition={{ staggerChildren: 0.3, duration: 0.7 }}
     viewport={{ once: true }}
   >
-    {[worker1, worker2, worker3, worker4].map((worker, index) => (
-      <motion.div
-        key={index}
-        className="worker-card"
-        variants={{
-          hidden: { opacity: 0, scale: 0.8 },
-          visible: { opacity: 1, scale: 1 },
-        }}
-        initial="hidden"
-        whileInView="visible"
-        whileHover={{ scale: 1.05 }}
-        transition={{ type: "spring", stiffness: 100, damping: 10 }}
-      >
-        <img src={worker} alt={`worker-${index}`} className="worker-img" />
-      </motion.div>
-    ))}
+   {[worker1, worker2, worker3, worker4].map((worker, index) => (
+  <motion.div
+    key={index}
+    className="worker-card"
+    variants={{
+      hidden: { opacity: 0, scale: 0.8 },
+      visible: { opacity: 1, scale: 1 },
+    }}
+    initial="hidden"
+    whileInView="visible"
+    whileHover={{ scale: 1.05 }}
+    transition={{ type: "spring", stiffness: 100, damping: 10 }}
+  >
+    <img src={worker} alt={`worker-${index}`} className="worker-img" />
+  </motion.div>
+))}
+
   </motion.div>
 </div>
 

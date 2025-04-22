@@ -35,11 +35,11 @@ function Navbar() {
           <div className="logo-container">
             <img src={logo} alt="Logo" className="logo" />
           </div>
-          <ul className="nav-links">
+          {/* <ul className="nav-links">
             <li><button onClick={() => handleScroll("about-section")}>About</button></li>
             <li><button onClick={() => handleScroll("gallery-section")}>Gallery</button></li>
             <li><button onClick={() => handleScroll("contact-section")}>Contact</button></li>
-          </ul>
+          </ul> */}
         </div>
         <div className="text-container">
           <h1>{slides[currentSlide].title}</h1>

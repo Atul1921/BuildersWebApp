@@ -106,8 +106,6 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
-
-/* CEO Section */
 .ceo-section {
   padding: 80px 20px;
 }
@@ -146,6 +144,31 @@
   color: #ecf0f1;
 }
 
+/* 🔧 Responsive Fix for Mobile */
+@media (max-width: 768px) {
+  .ceo-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .ceo-info {
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .ceo-name {
+    font-size: 2rem;
+  }
+
+  .ceo-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .ceo-img {
+    margin: 0 auto;
+  }
+}
 /* Workers Section */
 .workers-section {
   padding: 80px 20px;
@@ -164,17 +187,12 @@
 .workers-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
+  gap: 40px;
+  /* max-width: 1200px; */
   margin: 0 auto;
 }
 
-.worker-card {
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-}
+
 
 .team-description {
   font-size: 1.25rem; /* same as CEO description */
@@ -185,9 +203,27 @@
   line-height: 1.8;
 }
 
+.worker-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.worker-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
+}
 
 .worker-card img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
+  filter: brightness(1.1);
+  border-radius: 20px;
+  transition: transform 0.3s ease-in-out;
 }
