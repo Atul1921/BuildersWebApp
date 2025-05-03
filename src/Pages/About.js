@@ -33,7 +33,7 @@ function About() {
 
       <h2 style={styles.sectionTitle}>Our Services</h2>
       <ul style={styles.list}>
-        <li>Residential Construction</li>
+        {/* <li>Residential Construction</li> */}
         <li>Commercial Buildings</li>
         <li>Interior and Exterior Designing</li>
         <li>Renovation and Remodeling</li>
@@ -41,7 +41,7 @@ function About() {
       </ul>
 
       <h2 style={styles.sectionTitle}>Meet Our Team</h2>
-      <div style={styles.teamContainer}>
+      {/* <div style={styles.teamContainer}>
         {["John Doe", "Jane Smith", "Michael Brown", "Rajesh Kumar", "Priya Verma"].map((name, index) => (
           <div key={index} style={styles.teamMember}>
             <img src={teamPlaceholder} alt="Team Member" style={styles.teamImage} />
@@ -49,7 +49,7 @@ function About() {
             <p>{["Senior Architect", "Project Manager", "Lead Engineer", "Structural Engineer", "Interior Designer"][index]}</p>
           </div>
         ))}
-      </div>
+      </div> */}
 
       <h2 style={styles.sectionTitle}>Contact Us</h2>
       <p style={styles.contactInfo}>
