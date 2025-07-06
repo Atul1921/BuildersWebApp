@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import logo from "./icons/bhardwajwhite.png";
 import bg1 from "./icons/bgimg.jpg";
 import bg2 from "./icons/bgimg2.jpg";
@@ -14,6 +15,7 @@ const slides = [
 function Navbar() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,11 +42,19 @@ function Navbar() {
     goToSlide((prev) => (prev + 1) % slides.length);
   };
 
-  const handleScroll = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  // Modified handleNavigation function
+  const handleNavigation = (path) => {
+    navigate(path); // Navigate to the specified path
+    // For direct scrolling within the same page (e.g., if you had elements on Homescreen with these IDs)
+    // You would typically handle this on the target page (Homescreen, About, etc.)
+    // if (path === "/") {
+    //   setTimeout(() => { // Give time for the component to render
+    //     const element = document.getElementById(id);
+    //     if (element) {
+    //       element.scrollIntoView({ behavior: "smooth" });
+    //     }
+    //   }, 100);
+    // }
   };
 
   return (
@@ -58,9 +68,14 @@ function Navbar() {
             <img src={logo} alt="Logo" className="logo" />
           </div>
           <ul className="nav-links">
-            <li><button onClick={() => handleScroll("about-section")}>About</button></li>
-            <li><button onClick={() => handleScroll("gallery-section")}>Gallery</button></li>
-            <li><button onClick={() => handleScroll("contact-section")}>Contact</button></li>
+            {/* Change onClick to navigate to respective pages */}
+                        <li><button onClick={() => handleNavigation("/Home")}>Home</button></li>
+
+            <li><button onClick={() => handleNavigation("/about")}>About</button></li>
+            {/* <li><button onClick={() => handleNavigation("/portfolio")}>Gallery</button></li> Assuming Gallery maps to Portfolio page */}
+            <li><button onClick={() => handleNavigation("/contact")}>Contact</button></li>
+            {/* If you have a specific section on the home page you want to scroll to */}
+            {/* <li><button onClick={() => handleNavigation("/", "home-section-id")}>Home Section</button></li> */}
           </ul>
         </div>
         <div className={`text-container ${transitioning ? "fade-out-text" : ""}`}>

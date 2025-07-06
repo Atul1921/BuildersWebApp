@@ -1,144 +1,131 @@
-import React from "react";
-import teamPlaceholder from "../components/icons/bgimg2.jpg"; // Placeholder image for team members
-import ceoImage from "../components/icons/bgimg2.jpg"; // CEO Image
+// src/About.js
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import SideDrawer from "../components/SideDrawer"; // Import the new SideDrawer component
+import "./Styling/About.css"; // Keep your existing About page styles
+import ceoImage from "../components/icons/Ceo.jpg";
+
+// Import icons for services (FaBars and FaTimes are now in SideDrawer.js)
+import { FaBuilding, FaPaintBrush, FaTools, FaTree, FaBars } from "react-icons/fa";
 
 function About() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State for drawer visibility
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+
   return (
-    <div style={styles.aboutContainer}>
-      <h1 style={styles.title}>About Bhardwaj Builders</h1>
-      
-      <p style={styles.description}>
-        Bhardwaj Builders, founded by <strong>ER. Ankush Bhardwaj</strong>, is a leading construction company
-        specializing in high-quality indoor and outdoor architectural designs. With a strong commitment to excellence,
-        innovation, and customer satisfaction, we bring dreams to reality by constructing spaces that blend
-        functionality and aesthetics seamlessly.
-      </p>
-      
-      <h2 style={styles.sectionTitle}>Meet Our CEO</h2>
-      <div style={styles.ceoContainer}>
-        <img src={ceoImage} alt="ER. Ankush Bhardwaj" style={styles.ceoImage} />
-        <p style={styles.ceoDescription}>
-          <strong>ER. Ankush Bhardwaj</strong> is a visionary leader in the construction industry with years of experience
-          in delivering high-end projects. His expertise and innovative approach have shaped Bhardwaj Builders into a
-          trusted name in the field.
-        </p>
-      </div>
-      
-      <h2 style={styles.sectionTitle}>Our Mission</h2>
-      <p style={styles.description}>
-        At Bhardwaj Builders, our mission is to provide top-notch construction services with precision and quality.
-        We aim to build sustainable and durable structures that stand the test of time, ensuring complete client
-        satisfaction and contributing to the growth of modern architecture.
+    <div className="about-container">
+      {/* Drawer Toggle Button - Stays here or in a global header if you have one */}
+      <button className="drawer-toggle-button" onClick={toggleDrawer} aria-label="Open navigation menu">
+        <FaBars />
+      </button>
+
+      {/* Render the SideDrawer component */}
+      <SideDrawer isOpen={isDrawerOpen} onClose={closeDrawer} />
+
+      {/* --- Existing About Page Content Starts Here --- */}
+
+      <h1 className="about-title">About Bhardwaj Builders</h1>
+
+      <p className="about-description">
+        Bhardwaj Builders founded by ER. Ankush Bhardwaj, is a pioneering construction company dedicated to
+        delivering exceptional indoor and outdoor architectural designs. With an unwavering commitment to
+        **excellence, innovation, and client satisfaction**, we transform your visions into tangible realities,
+        crafting spaces that seamlessly blend functionality with stunning aesthetics.
       </p>
 
-      <h2 style={styles.sectionTitle}>Our Services</h2>
-      <ul style={styles.list}>
-        {/* <li>Residential Construction</li> */}
-        <li>Commercial Buildings</li>
-        <li>Interior and Exterior Designing</li>
-        <li>Renovation and Remodeling</li>
-        <li>Landscaping and Outdoor Development</li>
+      {/* Horizontal Rule */}
+      <hr style={{ width: '80%', border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.2)', margin: '60px auto' }} />
+
+
+      <h2 className="section-title">Meet Our Visionary CEO</h2>
+      <div className="ceo-container">
+        <img src={ceoImage} alt="ER. Ankush Bhardwaj, CEO" className="ceo-img" />
+        <div className="ceo-info">
+          <h3 className="ceo-name">ER. Ankush Bhardwaj</h3>
+          <p className="ceo-description-text">
+            He is the driving force behind Bhardwaj Builders, bringing a wealth of experience
+            and a forward-thinking approach to the construction industry. With a proven track record of successfully
+            delivering high-end residential, commercial, and bespoke architectural projects, his leadership ensures
+            every build embodies quality, efficiency, and artistic integrity. Ankush is not just a builder; he's a
+            creator of legacies, passionately committed to pushing the boundaries of modern design and sustainable construction practices.
+            His dedication to client-centric solutions and meticulous attention to detail have earned Bhardwaj Builders
+            its reputation as a trusted name in the field.
+          </p>
+          <p className="ceo-description-text">
+            Skills & Expertise:
+          </p>
+          <ul className="skills-list">
+            <li className="skill-item">Architectural Design</li>
+            <li className="skill-item">Project Management</li>
+            <li className="skill-item">Structural Engineering</li>
+            <li className="skill-item">Sustainable Construction</li>
+            <li className="skill-item">Client Relationship Management</li>
+            <li className="skill-item">Innovation & Technology Integration</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Horizontal Rule */}
+      <hr style={{ width: '80%', border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.2)', margin: '60px auto' }} />
+
+      <h2 className="section-title">Our Core Mission</h2>
+      <p className="mission-description">
+        At Bhardwaj Builders, our mission is to redefine construction by providing **top-notch services** with
+        uncompromising precision and quality. We are committed to building sustainable, durable, and aesthetically
+        pleasing structures that not only stand the test of time but also enhance the lives of those who inhabit them.
+        Ensuring complete client satisfaction and contributing positively to the evolution of modern architecture
+        remain at the heart of everything we do.
+      </p>
+
+      {/* Horizontal Rule */}
+      <hr style={{ width: '80%', border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.2)', margin: '60px auto' }} />
+
+      <h2 className="section-title">Our Specialized Services</h2>
+      <ul className="services-list">
+        <li className="service-item">
+          <FaBuilding className="service-icon" />
+          <strong>Commercial Buildings</strong>
+          <p>Crafting functional and impressive spaces for businesses of all sizes.</p>
+        </li>
+        <li className="service-item">
+          <FaPaintBrush className="service-icon" />
+          <strong>Interior & Exterior Designing</strong>
+          <p>Transforming visions into captivating realities, inside and out.</p>
+        </li>
+        <li className="service-item">
+          <FaTools className="service-icon" />
+          <strong>Renovation & Remodeling</strong>
+          <p>Breathing new life into existing structures with modern upgrades.</p>
+        </li>
+        <li className="service-item">
+          <FaTree className="service-icon" />
+          <strong>Landscaping & Outdoor Development</strong>
+          <p>Designing beautiful and functional outdoor environments.</p>
+        </li>
       </ul>
 
-      <h2 style={styles.sectionTitle}>Meet Our Team</h2>
-      {/* <div style={styles.teamContainer}>
-        {["John Doe", "Jane Smith", "Michael Brown", "Rajesh Kumar", "Priya Verma"].map((name, index) => (
-          <div key={index} style={styles.teamMember}>
-            <img src={teamPlaceholder} alt="Team Member" style={styles.teamImage} />
-            <h3>{name}</h3>
-            <p>{["Senior Architect", "Project Manager", "Lead Engineer", "Structural Engineer", "Interior Designer"][index]}</p>
-          </div>
-        ))}
-      </div> */}
+      {/* Horizontal Rule */}
+      <hr style={{ width: '80%', border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.2)', margin: '60px auto' }} />
 
-      <h2 style={styles.sectionTitle}>Contact Us</h2>
-      <p style={styles.contactInfo}>
-        <strong>Phone:</strong> +91 XXXXXXXXXX <br />
-        <strong>Email:</strong> contact@bhardwajbuilders.com <br />
-        <strong>Address:</strong> 123 Construction Lane, New Delhi, India
-      </p>
+      <div className="cta-section">
+        <h2>Ready to Build Your Dream Project?</h2>
+        <p>
+          We're excited to partner with you and bring your architectural aspirations to life.
+          Reach out today for a consultation or to learn more about how we can help.
+        </p>
+        <Link to="/contact" className="cta-button">
+          Contact Us Today!
+        </Link>
+      </div>
     </div>
   );
 }
-
-const styles = {
-  aboutContainer: {
-    textAlign: "center",
-    padding: "50px 20px",
-    background: "linear-gradient(to right, #1e3c72, #2a5298)",
-    color: "#fff",
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  title: {
-    fontSize: "3rem",
-    fontWeight: "bold",
-    marginBottom: "20px",
-  },
-  description: {
-    fontSize: "1.3rem",
-    maxWidth: "800px",
-    textAlign: "justify",
-    lineHeight: "1.6",
-  },
-  sectionTitle: {
-    fontSize: "2rem",
-    fontWeight: "bold",
-    marginTop: "40px",
-    marginBottom: "10px",
-  },
-  list: {
-    listStyle: "none",
-    padding: 0,
-    fontSize: "1.2rem",
-  },
-  ceoContainer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    maxWidth: "800px",
-  },
-  ceoImage: {
-    width: "200px",
-    height: "200px",
-    borderRadius: "50%",
-    objectFit: "cover",
-    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
-    marginBottom: "20px",
-  },
-  ceoDescription: {
-    fontSize: "1.3rem",
-    textAlign: "justify",
-    lineHeight: "1.6",
-  },
-  teamContainer: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    gap: "20px",
-    maxWidth: "1000px",
-    margin: "auto",
-  },
-  teamMember: {
-    background: "#fff",
-    padding: "20px",
-    borderRadius: "10px",
-    textAlign: "center",
-    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
-    color: "#000",
-  },
-  teamImage: {
-    width: "100%",
-    height: "180px",
-    objectFit: "cover",
-    borderRadius: "10px",
-  },
-  contactInfo: {
-    fontSize: "1.2rem",
-    textAlign: "center",
-    marginTop: "20px",
-  },
-};
 
 export default About;
