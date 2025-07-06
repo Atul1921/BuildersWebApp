@@ -69,7 +69,7 @@ function Navbar() {
           </div>
           <ul className="nav-links">
             {/* Change onClick to navigate to respective pages */}
-                        <li><button onClick={() => handleNavigation("/Home")}>Home</button></li>
+                        {/* <li><button onClick={() => handleNavigation("/Home")}>Home</button></li> */}
 
             <li><button onClick={() => handleNavigation("/about")}>About</button></li>
             {/* <li><button onClick={() => handleNavigation("/portfolio")}>Gallery</button></li> Assuming Gallery maps to Portfolio page */}
